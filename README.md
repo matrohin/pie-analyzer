@@ -1,6 +1,8 @@
 # Pie Analyzer (piea)
 Tree (e.g. directory tree) sunburst (a.k.a. multilevel-pie) chart plotter
 
+[![Build Status](https://travis-ci.org/matrohin/pie-analyzer.svg?branch=master)](https://travis-ci.org/matrohin/pie-analyzer)
+
 ## Install
 Run `pip3 install -r requirements/prod.txt` to install all requirements.
 
