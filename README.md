@@ -3,7 +3,10 @@ Tree (e.g. directory tree) sunburst (a.k.a. multilevel-pie) chart plotter
 
 ## Typical usage
 
-It's indeded to be used with du ([linux](https://en.wikipedia.org/wiki/Du_%28Unix%29), [windows](https://docs.microsoft.com/en-us/sysinternals/downloads/du)) utility like this:
+It's intended to be used with du
+([unix](https://en.wikipedia.org/wiki/Du_%28Unix%29),
+[windows](https://docs.microsoft.com/en-us/sysinternals/downloads/du))
+utility like this:
 
 ```
 du folder/to/analyze | python3 piea.py
@@ -36,4 +39,17 @@ Yes, you can plot any tree-like structure. Just pass input in following form to 
 <size2> root/parent/child
 ...
 <sizeN> root
+```
+
+## Command-line arguments
+
+```
+usage: piea.py [-h] [--hide] [--file FILE]
+
+Plot sunburst chart for given tree
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --hide       don't open browser (default: open browser)
+  --file FILE  name of output html file
 ```
