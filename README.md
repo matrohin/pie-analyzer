@@ -1,6 +1,9 @@
 # Pie Analyzer (piea)
 Tree (e.g. directory tree) sunburst (a.k.a. multilevel-pie) chart plotter
 
+## Install
+Run `pip3 install -r requirements/prod.txt` to install all requirements.
+
 ## Typical usage
 
 It's intended to be used with du
