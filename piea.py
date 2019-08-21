@@ -19,16 +19,32 @@ def split_path(path, all_paths):
     idx = path.rfind('/', 0, -1)
     if idx == -1:
         return '', path
-    parent, label = (path[0:idx + 1], path[idx+1:-1])
+    parent, label = path[0:idx + 1], path[idx+1:-1]
     if parent not in all_paths:
         return '', path
     return parent, label
 
 
+def find_whitespace(string):
+    """Find index of first whitespace in s."""
+    for idx, char in enumerate(string):
+        if char.isspace():
+            return idx
+    return -1
+
+
+def split_line(line):
+    """Split line into size and path."""
+    line = line.strip()
+    idx = find_whitespace(line)
+    if idx == -1:
+        return 0, line
+    return int(line[0:idx]), add_slash(line[idx + 1:len(line)].strip())
+
+
 def plot(open_browser, filename):
     """Plot sunburst chart from data given in stdin."""
-    sizes, paths = zip(*[line.rstrip().split() for line in sys.stdin])
-    sizes, paths = list(map(int, sizes)), list(map(add_slash, paths))
+    sizes, paths = zip(*map(split_line, sys.stdin))
     paths_set = set(paths)
     parents, labels = zip(*map(lambda p: split_path(p, paths_set), paths))
 
