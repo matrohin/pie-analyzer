@@ -4,7 +4,15 @@ Tree (e.g. directory tree) sunburst (a.k.a. multilevel-pie) chart plotter
 [![Build Status](https://travis-ci.org/matrohin/pie-analyzer.svg?branch=master)](https://travis-ci.org/matrohin/pie-analyzer)
 
 ## Install
+
 Run `pip3 install -r requirements/prod.txt` to install all requirements.
+
+## Example
+
+Command `du -ab | ./piea.py --file example/piea.html`
+produces [this html](<example/piea.html>).
+
+## Typical usage
 
 It's intended to be used with du
 ([unix](https://en.wikipedia.org/wiki/Du_%28Unix%29),
