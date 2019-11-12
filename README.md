@@ -7,10 +7,6 @@ Tree (e.g. directory tree) sunburst (a.k.a. multilevel-pie) chart plotter
 
 Run `pip3 install -r requirements/prod.txt` to install all requirements.
 
-## Example
-
-TODO: Add example image
-
 ## Typical usage
 
 It's intended to be used with du
@@ -23,10 +19,10 @@ utility.
 Run this command:
 
 ``` bash
-du folder/to/analyze | python3 piea.py
+du folder/to/analyze | piea.py
 ```
 
-File `temp_pie.html` will be created with interactive sunburst chart of your folder.
+File `temp_pie.html` will be created with **interactive** sunburst chart of your folder.
 
 ### du hints
 
@@ -36,12 +32,12 @@ It can be solved by passing some thresholds to du.
 
 This command will show only folders that are bigger than 10KB:
 ``` bash
-du --threshold=10K folder/to/analyze | python3 piea.py
+du --threshold=10K folder/to/analyze | piea.py
 ```
 
 This command will show only folders that are 3 levels deep:
 ``` bash
-du --max-depth=3 folder/to/analyze | python3 piea.py
+du --max-depth=3 folder/to/analyze | piea.py
 ```
 
 ## Typical usage (windows)
@@ -76,3 +72,10 @@ optional arguments:
   --file FILE  name of output file, for image supportsee
                https://plot.ly/python/static-image-export/
 ```
+
+## Example
+
+`du | piea.py --file example.svg` in lxqt-build-tools repository creates this image:
+
+![static image example](<example/example.svg>)
+
