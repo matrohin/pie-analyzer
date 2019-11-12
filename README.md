@@ -9,8 +9,7 @@ Run `pip3 install -r requirements/prod.txt` to install all requirements.
 
 ## Example
 
-Command `du -ab | ./piea.py --file example/piea.html`
-produces [this html](<example/piea.html>).
+TODO: Add example image
 
 ## Typical usage
 
@@ -28,7 +27,6 @@ du folder/to/analyze | python3 piea.py
 ```
 
 File `temp_pie.html` will be created with interactive sunburst chart of your folder.
-Also your default browser will open this file.
 
 ### du hints
 
@@ -69,12 +67,12 @@ Yes, you can plot any tree-like structure. Just pass input in following form to 
 ## Command-line arguments
 
 ```
-usage: piea.py [-h] [--hide] [--file FILE]
+usage: piea.py [-h] [--file FILE]
 
 Plot sunburst chart for given tree
 
 optional arguments:
   -h, --help   show this help message and exit
-  --hide       don't open browser (default: open browser)
-  --file FILE  name of output html file
+  --file FILE  name of output file, for image supportsee
+               https://plot.ly/python/static-image-export/
 ```

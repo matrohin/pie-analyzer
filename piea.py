@@ -4,7 +4,6 @@
 import argparse
 import sys
 import plotly.graph_objs as go
-import plotly.offline as py
 
 
 def add_slash(path):
@@ -42,7 +41,7 @@ def split_line(line):
     return int(line[0:idx]), add_slash(line[idx + 1:len(line)].strip())
 
 
-def plot(open_browser, filename):
+def plot(filename):
     """Plot sunburst chart from data given in stdin."""
     sizes, paths = zip(*map(split_line, sys.stdin))
     paths_set = set(paths)
@@ -55,9 +54,11 @@ def plot(open_browser, filename):
         values=sizes,
         branchvalues='total')
     fig = go.Figure([trace])
-    py.plot(fig,
-            auto_open=open_browser,
-            filename=filename)
+
+    if filename.endswith('html'):
+        fig.write_html(filename)
+    else:
+        fig.write_image(filename)
 
 
 def main():
@@ -66,16 +67,13 @@ def main():
         description='Plot sunburst chart for given tree')
 
     parser.add_argument(
-        '--hide',
-        action='store_true',
-        help="don't open browser (default: open browser)")
-    parser.add_argument(
         '--file',
         default='temp_pie.html',
-        help="name of output html file")
+        help='name of output file, for image support'
+             'see https://plot.ly/python/static-image-export/')
 
     args = parser.parse_args()
-    plot(not args.hide, args.file)
+    plot(args.file)
 
 
 main()
